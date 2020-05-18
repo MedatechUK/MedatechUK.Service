@@ -8,17 +8,17 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("ntService")>
-<Assembly: AssemblyDescription("An inheritable service class")>
-<Assembly: AssemblyCompany("MedatechUK")>
-<Assembly: AssemblyProduct("ntService")>
+<Assembly: AssemblyTitle("WindowsService1")>
+<Assembly: AssemblyDescription("")>
+<Assembly: AssemblyCompany("")>
+<Assembly: AssemblyProduct("WindowsService1")>
 <Assembly: AssemblyCopyright("Copyright ©  2020")>
-<Assembly: AssemblyTrademark("Future proof your business.")>
+<Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
-<Assembly: Guid("ca0df803-014f-4871-aa57-9420d253ab81")>
+<Assembly: Guid("e0a92eda-ac07-470d-818d-7c3bcccdd64c")>
 
 ' Version information for an assembly consists of the following four values:
 '
