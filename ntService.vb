@@ -161,6 +161,14 @@ Public MustInherit Class ntService : Inherits System.ServiceProcess.ServiceBase
         End While
     End Sub
 
+    Private Sub InitializeComponent()
+        '
+        'ntService
+        '
+        Me.CanPauseAndContinue = True
+
+    End Sub
+
 #End Region
 
 

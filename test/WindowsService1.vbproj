@@ -116,7 +116,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\ntService\ntService.vbproj">
+    <ProjectReference Include="..\ntService.vbproj">
       <Project>{0432b78f-e76a-450c-9dd9-ed55bf0f4eae}</Project>
       <Name>ntService</Name>
     </ProjectReference>
