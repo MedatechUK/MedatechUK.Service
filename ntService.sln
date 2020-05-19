@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.1082
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ntService", "ntService.vbproj", "{0432B78F-E76A-450C-9DD9-ED55BF0F4EAE}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WindowsService1", "test\WindowsService1.vbproj", "{20E7ECD8-1C3E-469D-8EF2-A6B971B9E88B}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WindowsService", "template\WindowsService.vbproj", "{20E7ECD8-1C3E-469D-8EF2-A6B971B9E88B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,9 +18,7 @@ Global
 		{0432B78F-E76A-450C-9DD9-ED55BF0F4EAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0432B78F-E76A-450C-9DD9-ED55BF0F4EAE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{20E7ECD8-1C3E-469D-8EF2-A6B971B9E88B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{20E7ECD8-1C3E-469D-8EF2-A6B971B9E88B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20E7ECD8-1C3E-469D-8EF2-A6B971B9E88B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{20E7ECD8-1C3E-469D-8EF2-A6B971B9E88B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
