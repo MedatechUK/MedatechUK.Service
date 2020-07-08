@@ -149,7 +149,25 @@ Public MustInherit Class ntService : Inherits System.ServiceProcess.ServiceBase
         While Not done
             Try
                 Using log As New StreamWriter(currentlog.FullName, True)
-                    log.WriteLine("{0}> {1}", Format(Now, "hh:mm:ss"), String.Format(str, args))
+                    log.WriteLine("{0}> {1}", Format(Now, "HH:mm:ss"), String.Format(str, args))
+                End Using
+                done = True
+
+            Catch ex As Exception
+                Threading.Thread.Sleep(500)
+
+            End Try
+
+        End While
+    End Sub
+
+    Public Sub Log(ByVal str)
+        Debug.Print("{0}> {1}", Format(Now, "hh:mm:ss"), str)
+        Dim done As Boolean = False
+        While Not done
+            Try
+                Using log As New StreamWriter(currentlog.FullName, True)
+                    log.WriteLine("{0}> {1}", Format(Now, "HH:mm:ss"), str)
                 End Using
                 done = True
 
