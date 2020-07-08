@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports System.Reflection
 
 Public MustInherit Class ntService : Inherits System.ServiceProcess.ServiceBase
 
@@ -115,10 +116,9 @@ Public MustInherit Class ntService : Inherits System.ServiceProcess.ServiceBase
     Private Function LogFolder() As DirectoryInfo
         Return New DirectoryInfo(
             Path.Combine(
-                Environment.GetEnvironmentVariable("SystemRoot"),
+               New FileInfo(Assembly.GetEntryAssembly.Location).DirectoryName,
                 String.Format(
-                    "logs\{0}\{1}",
-                    ServiceName,
+                    "log\{0}",
                     Now.ToString("yyyy-MM")
                 )
             )
