@@ -124,9 +124,6 @@ Public MustInherit Class ntService
     End Sub
 
     Private Sub InitializeComponent()
-        '
-        'ntService
-        '
         Me.CanPauseAndContinue = True
 
     End Sub
