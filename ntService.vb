@@ -1,7 +1,7 @@
-﻿Imports System.IO
-Imports System.Reflection
+﻿Imports MedatechUK.Logging
 
-Public MustInherit Class ntService : Inherits System.ServiceProcess.ServiceBase
+Public MustInherit Class ntService
+    Inherits LogableService
 
 #Region "Start argument variables"
 
@@ -113,70 +113,14 @@ Public MustInherit Class ntService : Inherits System.ServiceProcess.ServiceBase
 
 #Region "Logging"
 
-    Private Function LogFolder() As DirectoryInfo
-        Return New DirectoryInfo(
-            Path.Combine(
-               New FileInfo(Assembly.GetEntryAssembly.Location).DirectoryName,
-                String.Format(
-                    "log\{0}",
-                    Now.ToString("yyyy-MM")
-                )
-            )
-        )
+    Public Sub Log(ByVal str As String, ByVal ParamArray arg() As String)
+        Me.logHandler.Invoke(Me, New LogArgs(str, arg))
 
-    End Function
-
-    Private Function currentlog() As FileInfo
-        With LogFolder()
-            If Not .Exists Then .Create()
-            Return New FileInfo(
-                Path.Combine(
-                    .FullName,
-                    String.Format(
-                        "{0}.txt",
-                        Now.ToString("yyMMdd")
-                    )
-                )
-            )
-
-        End With
-
-    End Function
-
-    Public Sub Log(ByVal str, ByVal ParamArray args())
-        Debug.Print("{0}> {1}", Format(Now, "hh:mm:ss"), String.Format(str, args))
-        Dim done As Boolean = False
-        While Not done
-            Try
-                Using log As New StreamWriter(currentlog.FullName, True)
-                    log.WriteLine("{0}> {1}", Format(Now, "HH:mm:ss"), String.Format(str, args))
-                End Using
-                done = True
-
-            Catch ex As Exception
-                Threading.Thread.Sleep(500)
-
-            End Try
-
-        End While
     End Sub
 
     Public Sub Log(ByVal str)
-        Debug.Print("{0}> {1}", Format(Now, "hh:mm:ss"), str)
-        Dim done As Boolean = False
-        While Not done
-            Try
-                Using log As New StreamWriter(currentlog.FullName, True)
-                    log.WriteLine("{0}> {1}", Format(Now, "HH:mm:ss"), str)
-                End Using
-                done = True
+        Me.logHandler.Invoke(Me, New LogArgs(str, Nothing))
 
-            Catch ex As Exception
-                Threading.Thread.Sleep(500)
-
-            End Try
-
-        End While
     End Sub
 
     Private Sub InitializeComponent()
@@ -188,6 +132,5 @@ Public MustInherit Class ntService : Inherits System.ServiceProcess.ServiceBase
     End Sub
 
 #End Region
-
 
 End Class

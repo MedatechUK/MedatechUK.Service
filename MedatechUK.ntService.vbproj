@@ -108,5 +108,11 @@
     <None Include="ntService.nuspec" />
     <None Include="readme.md" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MedatechUK.Log\MedatechUK.Log.vbproj">
+      <Project>{def77d25-0edd-42ad-84da-941965dd0eba}</Project>
+      <Name>MedatechUK.Log</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
