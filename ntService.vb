@@ -3,17 +3,25 @@
 Public MustInherit Class ntService
     Inherits LogableService
 
+    Sub New(ByRef EventLogHandler As EventHandler)
+        Logging.Events.LogLocation = Logging.eLogLocation.GetEntryAssemblyDirectory
+        Me.logHandler = EventLogHandler
+
+    End Sub
+
 #Region "Start argument variables"
 
     Private Enum eMode
         Switch
         Param
+
     End Enum
 
     Private _StartArg As New Dictionary(Of String, String)
     Public ReadOnly Property StartArg() As Dictionary(Of String, String)
         Get
             Return _StartArg
+
         End Get
     End Property
 
